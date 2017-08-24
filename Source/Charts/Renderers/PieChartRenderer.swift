@@ -728,7 +728,8 @@ open class PieChartRenderer: DataRenderer
             let sliceAngle = drawAngles[index]
             var innerRadius = userInnerRadius
             
-            let shift = set.selectionShift
+            //
+            let shift = indices[i].selectionShift
             let highlightedRadius = radius + shift
             
             let accountForSliceSpacing = sliceSpace > 0.0 && sliceAngle <= 180.0

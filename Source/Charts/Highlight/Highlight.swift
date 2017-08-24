@@ -46,6 +46,9 @@ open class Highlight: NSObject
     /// the y-position (pixels) on which this highlight object was last drawn
     open var drawY: CGFloat = 0.0
     
+    // 新增对于pie high的半径
+    open var selectionShift: CGFloat = 18.0
+    
     public override init()
     {
         super.init()

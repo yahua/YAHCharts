@@ -128,7 +128,11 @@
     [data setValueTextColor:UIColor.whiteColor];
     
     _chartView.data = data;
-    [_chartView highlightValues:nil];
+    
+    ChartHighlight *hight1 = [[ChartHighlight alloc] initWithX:0 y:0 dataSetIndex:0];
+    hight1.selectionShift = 30.0f;
+    ChartHighlight *hight2 = [[ChartHighlight alloc] initWithX:1 y:0 dataSetIndex:0];
+    [_chartView highlightValues:@[hight1, hight2]];
 }
 
 - (void)optionTapped:(NSString *)key
