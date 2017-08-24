@@ -190,9 +190,6 @@ open class XAxisRenderer: AxisRendererBase
         #endif
         paraStyle.alignment = .center
         
-        let labelAttrs = [NSFontAttributeName: xAxis.labelFont,
-            NSForegroundColorAttributeName: xAxis.labelTextColor,
-            NSParagraphStyleAttributeName: paraStyle] as [String : NSObject]
         let labelRotationAngleRadians = xAxis.labelRotationAngle * ChartUtils.Math.FDEG2RAD
         
         let centeringEnabled = xAxis.isCenterAxisLabelsEnabled
@@ -230,6 +227,19 @@ open class XAxisRenderer: AxisRendererBase
 
                 let labelns = label as NSString
                 
+                //x轴每一个显示一种字体和颜色
+                var labelFont = xAxis.labelFont
+                if i<xAxis.labelFonts.count {
+                    labelFont = xAxis.labelFonts[i]
+                }
+                var textColor = xAxis.labelTextColor;
+                if i<xAxis.labelTextColors.count {
+                    textColor = xAxis.labelTextColors[i]
+                }
+                
+                let labelAttrs = [NSFontAttributeName: labelFont,
+                                  NSForegroundColorAttributeName: textColor,
+                                  NSParagraphStyleAttributeName: paraStyle] as [String : NSObject]
                 if xAxis.isAvoidFirstLastClippingEnabled
                 {
                     // avoid clipping of the last

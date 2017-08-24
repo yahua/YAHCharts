@@ -26,6 +26,10 @@ open class AxisBase: ComponentBase
     
     open var labelFont = NSUIFont.systemFont(ofSize: 10.0)
     open var labelTextColor = NSUIColor.black
+    //多颜色
+    open var labelTextColors = [NSUIColor]()
+    //多字体
+    open var labelFonts = [NSUIFont]()
     
     open var axisLineColor = NSUIColor.gray
     open var axisLineWidth = CGFloat(0.5)
@@ -133,8 +137,8 @@ open class AxisBase: ComponentBase
         for i in 0 ..< entries.count
         {
             let text = getFormattedLabel(i)
-            
-            if longest.characters.count < text.characters.count
+            //将length改为字节判断，否则会被截断
+            if longest.lengthOfBytes(using: String.Encoding.utf8) < text.lengthOfBytes(using: String.Encoding.utf8)
             {
                 longest = text
             }

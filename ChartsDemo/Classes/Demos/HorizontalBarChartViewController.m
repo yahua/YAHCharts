@@ -56,9 +56,11 @@
     ChartXAxis *xAxis = _chartView.xAxis;
     xAxis.labelPosition = XAxisLabelPositionBottom;
     xAxis.labelFont = [UIFont systemFontOfSize:10.f];
+    xAxis.labelFonts = @[[UIFont systemFontOfSize:10.f], [UIFont boldSystemFontOfSize:15.f]];
     xAxis.drawAxisLineEnabled = YES;
     xAxis.drawGridLinesEnabled = NO;
     xAxis.granularity = 10.0;
+    xAxis.labelTextColors = @[UIColor.whiteColor, [UIColor redColor]];
     
     ChartYAxis *leftAxis = _chartView.leftAxis;
     leftAxis.labelFont = [UIFont systemFontOfSize:10.f];

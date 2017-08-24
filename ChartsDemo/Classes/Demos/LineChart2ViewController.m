@@ -69,7 +69,7 @@
     
     ChartXAxis *xAxis = _chartView.xAxis;
     xAxis.labelFont = [UIFont systemFontOfSize:11.f];
-    xAxis.labelTextColor = UIColor.whiteColor;
+    xAxis.labelTextColors = @[UIColor.whiteColor, [UIColor redColor]];
     xAxis.drawGridLinesEnabled = NO;
     xAxis.drawAxisLineEnabled = NO;
     

@@ -127,8 +127,6 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
             let viewPortHandler = self.viewPortHandler
             else { return }
         
-        let labelFont = xAxis.labelFont
-        let labelTextColor = xAxis.labelTextColor
         let labelRotationAngleRadians = xAxis.labelRotationAngle * ChartUtils.Math.FDEG2RAD
         
         let centeringEnabled = xAxis.isCenterAxisLabelsEnabled
@@ -152,6 +150,16 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
             }
             
             transformer.pointValueToPixel(&position)
+            
+            //x轴每一个显示一种字体和颜色
+            var labelFont = xAxis.labelFont
+            if i<xAxis.labelFonts.count {
+                labelFont = xAxis.labelFonts[i]
+            }
+            var labelTextColor = xAxis.labelTextColor
+            if i<xAxis.labelTextColors.count {
+                labelTextColor = xAxis.labelTextColors[i]
+            }
             
             if viewPortHandler.isInBoundsY(position.y)
             {
