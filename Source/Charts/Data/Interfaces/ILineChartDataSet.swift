@@ -25,6 +25,9 @@ public protocol ILineChartDataSet: ILineRadarChartDataSet
     /// **default**: Linear
     var mode: LineChartDataSet.Mode { get set }
     
+    //是否去除首尾的线条
+    var removeFirstEnd: Bool { get set }
+    
     /// Intensity for cubic lines (min = 0.05, max = 1)
     ///
     /// **default**: 0.2

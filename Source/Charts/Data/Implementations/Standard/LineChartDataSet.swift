@@ -48,6 +48,9 @@ open class LineChartDataSet: LineRadarChartDataSet, ILineChartDataSet
     
     /// The drawing mode for this line dataset
     ///
+    
+    open var removeFirstEnd = false
+    
     /// **default**: Linear
     open var mode: Mode = Mode.linear
     

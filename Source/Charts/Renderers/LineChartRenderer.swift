@@ -119,8 +119,12 @@ open class LineChartRenderer: LineRadarRenderer
             // So in the starting `prev` and `cur`, go -2, -1
             // And in the `lastIndex`, add +1
             
-            let firstIndex = _xBounds.min + 1
-            let lastIndex = _xBounds.min + _xBounds.range
+            var firstIndex = _xBounds.min + 1
+            var lastIndex = _xBounds.min + _xBounds.range
+            if dataSet.removeFirstEnd {
+                firstIndex += 1
+                lastIndex -= 1;
+            }
             
             var prevPrev: ChartDataEntry! = nil
             var prev: ChartDataEntry! = dataSet.entryForIndex(max(firstIndex - 2, 0))
